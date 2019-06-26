@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="AnchorPane" prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controller">
+    <children>
+        <!-- Меню -->
+        <MenuBar prefHeight="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <menus>
+                <Menu text="Chat">
+                    <items>
+                        <MenuItem fx:id="miAboutChat" text="О Chat" />
+                        <SeparatorMenuItem />
+                        <MenuItem fx:id="miPreference" text="Настройки" />
+                        <SeparatorMenuItem />
+                        <MenuItem fx:id="miCloseWindow" onAction="#closeChat" text="Выход из Chat" />
+                    </items>
+                </Menu>
+                <Menu text="Вид">
+                    <items>
+                        <MenuItem fx:id="miFullScreen" text="Полно экранный режим" />
+                        <SeparatorMenuItem />
+                        <CheckMenuItem fx:id="userListLeft" onAction="#userListLeft" text="Список пользователей слева" />
+                        <MenuItem fx:id="miTakeTheme" text="Выбрать тему" />
+                    </items>
+                </Menu>
+                <Menu text="Окна">
+                    <MenuItem fx:id="miMinimise" text="Свернуть" />
+                    <MenuItem fx:id="miClose" text="Закрыть" />
+                </Menu>
+            </menus>
+        </MenuBar>
+
+        <!-- Панель авторизации -->
+        <TextField fx:id="loginField" promptText="Логин" AnchorPane.leftAnchor="200" AnchorPane.rightAnchor="200" AnchorPane.topAnchor="100.0" />
+        <PasswordField fx:id="passField" onAction="#tryToAuth" promptText="Пароль" AnchorPane.leftAnchor="200" AnchorPane.rightAnchor="200" AnchorPane.topAnchor="150.0" />
+        <Button fx:id="btAuth" onAction="#tryToAuth" text="Авторизоваться" AnchorPane.leftAnchor="250" AnchorPane.rightAnchor="250" AnchorPane.topAnchor="200" />
+        <TextField fx:id="tfAuth" disable="true" editable="false" focusTraversable="false" AnchorPane.leftAnchor="200" AnchorPane.rightAnchor="200" AnchorPane.topAnchor="250">
+         <effect>
+            <Blend />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="NONE" />
+         </cursor></TextField>
+
+
+        <!-- Основаня панель -->
+        <TextArea fx:id="textArea" editable="false" managed="false" visible="false" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="202.0" AnchorPane.topAnchor="30.0" />
+        <ListView fx:id="lwUsers" editable="false" managed="false" prefWidth="198.0" visible="false" AnchorPane.bottomAnchor="52.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
+        <TextField fx:id="textField" managed="false" onAction="#sendMsg" prefHeight="48.0" prefWidth="720.0" promptText="Введите текст..." visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="80.0" />
+        <Button fx:id="btnSend" layoutX="723.0" layoutY="550.0" managed="false" onAction="#sendMsg" prefHeight="44.0" prefWidth="72.0" text="Send" visible="false" AnchorPane.bottomAnchor="4.0" AnchorPane.rightAnchor="4.0" />
+    </children>
+</AnchorPane>
